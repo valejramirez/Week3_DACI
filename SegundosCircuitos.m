@@ -15,13 +15,13 @@ CJ      = 0.56e-3;       %(F/m^2)    -> Capacitancia de unión por área
 CJSW    = 0.35e-11;      %(F/m)      -> Capacitancia de unión lateral
 MJ      = 0.45;          %(unitless) -> Exponente de CJ
 MJSW    = 0.2;           %(unitless) -> Exponente de CJSW
-CGDO    = 0.4e-9;        %(F/m)      -> Capacitancia solapamiento puerta-drenaje 
+CGDO    = 0.4e-9;        %(F/m)      -> Capacitancia solapamiento puerta-drenaje
 JS      = 1.0e-8;        %(A/m^2)    -> Corriente de fuga por unidad de área
 Vds     = 3;             %V
 Cox     = 3836e-6;       %F/m^2
 Vdd     = 3;              %V
-W=50; 
-L1=0.5; 
+W=50;
+L1=0.5;
 Iss=1;
 Id=0.5;
 L2=1;
@@ -45,10 +45,15 @@ rparalelo= rop*ron / (rop+ron);
 Avb= - gmn * rparalelo;
 %Question 19
 VGS1= sqrt( (2*Id)/(UON*Cox*(W/L1)*1000 ) ) + VTOn;
-Vcmminims= VGS1 + 0.4
+Vcmminims= VGS1 + 0.4;
 %Question 20
-Vsg= VTOp + sqrt((2*Id*10^-3)/(UOP*Cox*(W/L2)));
+Vsg= VTOp + sqrt((2*Id*10^-3)/(UOP*Cox*(W/L2)))
 Vovp= Vsg - VTOp;
-VoutmaxA= 3 - Vovp; 
+VoutmaxA= 3 - Vovp;
 VovN= VGS1 - VTOn;
 VotminA = VovN + 0.4
+SwingA = 2* ( 2.2 - VotminA);
+%Quesstion 21
+VoutmaxB =3 - (Vsg - 0.8);
+SwingB= 2*(VoutmaxB - VotminA);
+Vb= 3 - Vsg
